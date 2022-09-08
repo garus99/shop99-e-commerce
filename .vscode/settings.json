@@ -13,5 +13,7 @@
             "database": "shop99_ecommerce",
             "password": ""
         }
-    ]
+    ],
+    "scm.alwaysShowRepositories": false,
+    "scm.alwaysShowActions": false
 }
