@@ -1,9 +1,10 @@
 <?php
 
-use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\grid\ActionColumn;
+use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\Product;
+use yii\grid\ActionColumn;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\ProductSearch */
