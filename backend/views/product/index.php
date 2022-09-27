@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             
           
-            'price',
+            'price:currency',
 
             [
              
