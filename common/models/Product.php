@@ -3,12 +3,15 @@
 namespace common\models;
 
 use Yii;
+use common\models\User;
+use yii\db\AfterSaveEvent;
+use common\models\CartItem;
+use yii\helpers\FileHelper;
+use common\models\OrderItem;
+use yii\validators\SafeValidator;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
-use yii\validators\SafeValidator;
-use yii\db\AfterSaveEvent;
-use yii\helpers\FileHelper;
-
+use common\models\getImageUrl;
 /**
  * This is the model class for table "{{%products}}".
  *
@@ -159,14 +162,21 @@ class Product extends \yii\db\ActiveRecord
       }
       
       public function getImageUrl()
-      {
+      {   
 
-      if($this->image) {
-      return Yii::$app->params['frontendUrl']. '/storage'. $this->image;
-
+      if ($this->image){
+  return Yii::$app->params['frontendUrl']. '/storage'. $this->image;
       }
       return Yii::$app->params['frontendUrl']. '/img/no_image.png';
-    }
-
     
+
 }
+public function getShortDescription()
+{
+   return \yii\helpers\StringHelper::truncateWords(strip_tags($this->description), 30);
+}
+/**
+ * Get short version of the description
+ */
+}
+ 
