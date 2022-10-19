@@ -2,19 +2,21 @@
 
 namespace frontend\controllers;
 
-use frontend\models\ResendVerificationEmailForm;
-use frontend\models\VerifyEmailForm;
 use Yii;
-use yii\base\InvalidArgumentException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+use common\models\Product;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
+use yii\filters\AccessControl;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\data\ActiveDataProvider;
+use frontend\models\VerifyEmailForm;
+use yii\web\BadRequestHttpException;
+use frontend\models\ResetPasswordForm;
+use yii\base\InvalidArgumentException;
+use frontend\models\PasswordResetRequestForm;
+use frontend\models\ResendVerificationEmailForm;
 
 /**
  * Site controller
@@ -75,7 +77,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $dataProvider = new ActiveDataProvider([
+       'query' => Product::find()->published(),
+       'pagination' => [
+        'pageSize' =>3
+       ]
+        ]);
+        return $this->render('index' , [
+            'dataProvider' => $dataProvider
+        ]);
     }
 
     /**

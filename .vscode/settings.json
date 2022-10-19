@@ -15,5 +15,6 @@
         }
     ],
     "scm.alwaysShowRepositories": false,
-    "scm.alwaysShowActions": false
+    "scm.alwaysShowActions": false,
+    "intelephense.environment.phpVersion": "7.4"
 }

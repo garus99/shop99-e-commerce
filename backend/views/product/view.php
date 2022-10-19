@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => ['html'],
                 'value' => fn()=> Html::img($model->getImageUrl(),['style'=>'width: 50px']),
    
-               ],
+               ], 
             'name',
             'description:html',
             'price:currency',
